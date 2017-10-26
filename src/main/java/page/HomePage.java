@@ -30,17 +30,33 @@ public class HomePage extends AbstractPage {
 	}
 	
 	public void logIn(String username, String password){
-		String currentHandle = getCurrentDriver(driver);
 		switchOtherWindow(driver);
 		inputUsername(username);
 		inputPasswrod(password);
 		clickSignInButton();
-		switchCurrentDriver(driver, currentHandle);
 	}
 	
 	public void clickBrexxButton() {
-		waitForElement(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON, timeWaits);
+		switchOtherWindow(driver);
+		sleep(15);
+		waitForElementInvisible(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON, timeWaits);
 		click(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON);
 	}
+	
+	public void clickDownloadDataButton() {
+		waitForElement(driver, interfaces.HomePage.DOWNLOAD_DATA_BUTTON, timeWaits);
+		click(driver, interfaces.HomePage.DOWNLOAD_DATA_BUTTON);
+	}
+	
+	public void clickTemplatesButton() {
+		waitForElement(driver, interfaces.HomePage.TEMPLATES_BUTTON, timeWaits);
+		click(driver, interfaces.HomePage.TEMPLATES_BUTTON);
+	}
+	
+	public void clickUseTemplatesButton() {
+		waitForElement(driver, interfaces.HomePage.USE_TEMPLATES_BUTTON, timeWaits);
+		click(driver, interfaces.HomePage.USE_TEMPLATES_BUTTON);
+	}
 	WebDriver driver;
+	String currentHandle;
 }

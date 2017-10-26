@@ -27,6 +27,10 @@ public class s001_login extends AbstractTest {
 		log.info("Login");
 		home.clickLogInButton();
 		home.logIn(Constant.USERNAME, Constant.PASSWORD);
+		home.clickBrexxButton();
+		home.clickDownloadDataButton();
+		home.clickTemplatesButton();
+		home.clickUseTemplatesButton();
 		
 	}
 	
