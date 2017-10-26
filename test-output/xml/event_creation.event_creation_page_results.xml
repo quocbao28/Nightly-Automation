@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="6.670">
+  <properties />
+  
+  
+            <testcase name="event_creation_page_TC001" time="5.339" classname="event_creation.event_creation_page" />
+                <testcase name="event_creation_page_TC004" time="0.770" classname="event_creation.event_creation_page" />
+                <testcase name="event_creation_page_TC003" time="0.561" classname="event_creation.event_creation_page" />
+      
+</testsuite>
