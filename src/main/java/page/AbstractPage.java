@@ -37,6 +37,27 @@ public class AbstractPage {
 	public AbstractPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	
+	public Object scrollToBottom(){
+		try{
+			JavascriptExecutor jse6 = (JavascriptExecutor) driver; 
+			return jse6.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		}catch(Exception e){
+			e.getMessage();
+			return null;
+		}
+	}
+	
+	public Object scrollToTop(){
+		try{
+			JavascriptExecutor jse6 = (JavascriptExecutor) driver; 
+			return jse6.executeScript("window.scrollTo(0, 0)");
+		}catch(Exception e){
+			e.getMessage();
+			return null;
+		}
+	}
 
 	public void click(WebDriver driver, String locator) {
 		waitForElement(driver, locator, Constant.TimeWait);
@@ -271,11 +292,18 @@ public class AbstractPage {
 		waitForElement(driver, controlName, Constant.TimeWait);
 		return control.findElements(driver, controlName).size();
 	}
-
+	
 	public void moveMouseToElement(WebDriver driver, String controlName) {
 		waitForElement(driver, controlName, Constant.TimeWait);
 		Actions action = new Actions(driver);
 		action.moveToElement(getElement(driver, controlName), 156, 20);
+		action.build().perform();
+	}
+
+	public void moveMouseToElementAndClick(WebDriver driver, String controlName) {
+		waitForElement(driver, controlName, Constant.TimeWait);
+		Actions action = new Actions(driver);
+		action.moveToElement(getElement(driver, controlName), 156, 20).click();
 		action.build().perform();
 	}
 

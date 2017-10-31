@@ -1,6 +1,15 @@
 package page;
 
+import java.awt.AWTException;
+import java.awt.Point;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import net.thucydides.core.annotations.findby.By;
 
 public class HomePage extends AbstractPage {
 
@@ -34,13 +43,15 @@ public class HomePage extends AbstractPage {
 		inputUsername(username);
 		inputPasswrod(password);
 		clickSignInButton();
+		switchOtherWindow(driver);
 	}
 	
 	public void clickBrexxButton() {
-		switchOtherWindow(driver);
-		sleep(15);
-		waitForElementInvisible(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON, timeWaits);
-		click(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON);
+		waitForElement(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON, timeWaits);
+		scrollToBottom();
+		sleep(10000);
+		moveMouseToElementAndClick(driver, interfaces.HomePage.BRIXX_TIP_REPORT_BUTTON);
+		scrollToTop();
 	}
 	
 	public void clickDownloadDataButton() {

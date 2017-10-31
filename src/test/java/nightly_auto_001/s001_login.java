@@ -1,5 +1,6 @@
 package nightly_auto_001;
 
+import org.sikuli.script.FindFailed;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -23,7 +24,7 @@ public class s001_login extends AbstractTest {
 	}
 
 	@Test
-	public void login_TC001() {
+	public void login_TC001() throws FindFailed, InterruptedException {
 		log.info("Login");
 		home.clickLogInButton();
 		home.logIn(Constant.USERNAME, Constant.PASSWORD);

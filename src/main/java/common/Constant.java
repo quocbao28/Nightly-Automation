@@ -13,7 +13,7 @@ public class Constant extends CommonAction{
 	
 	//---------------------------------Driver pack------------------------------------//
 	public static WebDriver driver = null;
-	public static int TimeWait = 10;
+	public static int TimeWait = 30;
 	public static final String email = "Automation";
 	public static final String DRIVER_PATH = "..\\Oevent\\src\\test\\resources\\";
 	public static final String CHROME_DRIVER_SERVER = "chromedriver";
